@@ -19,7 +19,9 @@ public class CacheService {
 
     @Cacheable(value = "artist", key = "#mbid")
     public Artist get(String mbid) {
-        return JsonParser.parse(mbid);
+        Artist artist = JsonParser.parse(mbid);
+
+        return artist;
     }
 
     @CacheEvict(value = "artist", key = "#mbid")
